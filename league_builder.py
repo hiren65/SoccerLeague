@@ -22,6 +22,7 @@ with open('soccer_players.csv', mode='r') as infile:
 
 
 d = {}
+
 d1 = {}
 list1 = []
 with open('soccer_players.csv') as f:
@@ -30,7 +31,7 @@ with open('soccer_players.csv') as f:
         d.setdefault(row['Name'], {}).update({row['Height (inches)']: row['Soccer Experience']})
 
         d1.update( {row['Name']:row.pop('Guardian Name(s)')})
-        
+
 
 #print(d)
 #print(d1)
