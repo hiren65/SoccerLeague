@@ -104,13 +104,13 @@ def print_All():
     else:
         print("Sorry, I can not remove %s file." % filename)
     print_line()
-    print('Group 1')
+    print('Group 1 (Dragons)')
     print_line()
     # Create new text file
     with open('teams.txt', 'a') as txtFile:
         txtFile.write("-" * 50)
         txtFile.write("\n")
-        txtFile.write('Group 1')
+        txtFile.write('Group 1 Dragons')
         txtFile.write("\n")
         txtFile.write("-" * 50)
         txtFile.write("\n")
@@ -123,13 +123,13 @@ def print_All():
             txtFile.write("Player : {} \n :Height-{},  Soccer Experience-{},  Guardian Name-{} \n ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
 
     print_line()
-    print('Group 2')
+    print('Group 2 (Sharks)')
     print_line()
 
     with open('teams.txt', 'a') as txtFile:
         txtFile.write("-" * 50)
         txtFile.write("\n")
-        txtFile.write('Group 2')
+        txtFile.write('Group 2 Sharks')
         txtFile.write("\n")
         txtFile.write("-" * 50)
         txtFile.write("\n")
@@ -142,13 +142,13 @@ def print_All():
         with open('teams.txt', 'a') as txtFile:
             txtFile.write("Player : {} \n :Height-{},  Soccer Experience-{},  Guardian Name-{} \n ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
     print_line()
-    print('Group 3')
+    print('Group 3 (Raptors)')
     print_line()
 
     with open('teams.txt', 'a') as txtFile:
         txtFile.write("-" * 50)
         txtFile.write("\n")
-        txtFile.write('Group 3')
+        txtFile.write('Group 3 Raptors')
         txtFile.write("\n")
         txtFile.write("-" * 50)
         txtFile.write("\n")
@@ -203,6 +203,7 @@ while True:
         command()
 
     if word=='end' or word=='exit':
+        print("Thank You, Programme is going to close!!")
         break
     if word == 'YES' or word == 'NO':
         for key in result.copy():
