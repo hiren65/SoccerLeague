@@ -1,4 +1,13 @@
-import csv
+import csv, os
+
+# To clear content
+def cls():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
 # Read csv file raw
 with  open("soccer_players.csv",'r') as csvfile:
     for line in csvfile:
@@ -32,6 +41,11 @@ for key in (d.keys() | d1.keys() | d2.keys()):
     if key in d2: result.setdefault(key, []).append(d2[key])
 
 print (result)
+
+temp_result = {}
+temp_result = result.copy()
+print(temp_result)
+
 #df = []
 #print(type(df))
 i = 0
@@ -55,6 +69,8 @@ with open('tempLeagueDict.csv', 'w') as csvfile:
             'Guardian Name(s)':result[key][2]
         })
 
+def print_line():
+    print("-"*60)
 
 # rearranging order
 with open('tempLeagueDict.csv', 'r') as infile, open('reordered.csv', 'w') as outfile:
@@ -77,13 +93,52 @@ def myList_print():
         print(listTwo)
     if myGroup == str(3):
         print(listThree)
-        
 
+def print_All():
+    name = 0
+    cls()
+    print_line()
+    print('Group 1')
+    print_line()
+    for name in listOne:
+        chiku = {}
+        chiku = temp_result.copy()
+        print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+    print_line()
+    print('Group 2')
+    print_line()
+    for name in listTwo:
+        chiku = {}
+        chiku = temp_result.copy()
+        print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+    print_line()
+    print('Group 3')
+    print_line()
+    for name in listThree:
+        chiku = {}
+        chiku = temp_result.copy()
+        print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+    print_line()
+
+
+
+#temp_result = {}
+#temp_result = result.copy()
+#print(temp_result)
 
 listOne = []
 listTwo = []
 listThree = []
 my_list = []
+
+def createNew():
+    result = temp_result.copy()
+    print(result.copy())
+    listOne = []
+    listTwo = []
+    listThree = []
+    my_list = []
+    return result
 
 while True:
     # if you enter 'end' or 'exit then your programe goes closed
@@ -92,17 +147,26 @@ while True:
     # if you enter 'create' then you enter in group player selection part
     word = input("enter your word >")
     ii = 0
+    iii = 0
     if word=='end' or word=='exit':
         break
     if word == 'YES' or word == 'NO':
-        for key in result:
+        for key in result.copy():
 
-            if result[key][1] == word:
+            if result[key][1] == word.upper():
                 ii += 1;
                 print("{} : {}".format(key,result[key]))
         print('Total Number {} expericed {} '.format(ii,word))
     if word == 'print':
         myList_print()
+    if word == 'print all':
+        print_All()
+    if word == 'newcreate':
+        result = createNew()
+        listOne = []
+        listTwo = []
+        listThree = []
+        my_list = []
     if word == 'create':
         groupName = input("Enter group name 1 or 2 or 3")
         if groupName == str(1):
@@ -112,22 +176,29 @@ while True:
         if groupName == str(3):
             my_list = listThree
         print("Your selected {}".format(groupName))
-        for key in result:
-            print("{} : {}".format(key, result[key]))
-            select = input("enter selection > ")
+        print(result.copy())
+        for key in result.copy():
+            if len(my_list) >= 6:
+                print('there is limit of 6 in single group')
+                if groupName == 1:
+                    listOne = my_list
+                if groupName == 2:
+                    listTwo = my_list
+                if groupName == 3:
+                    listThree = my_list
+                my_list = []
+                break
+            iii += 1
+            print("{} : {} count {}".format(key, result[key],iii))
+            select = input("enter selection in 'y' or 'n' > ")
             if select == 'Y' or select == 'y':
-                if len(my_list) >= 9:
-                    print('there is limit of 9 in single group')
-                    if groupName == 1:
-                        listOne = my_list
-                    if groupName == 2:
-                        listTwo = my_list
-                    if groupName == 3:
-                        listThree = my_list
-                    my_list = []
-                    break
+
+                if  iii == 18:
+                    print('finished')
 
                 my_list.append(key)
+                result.pop(key, None)
+                #print(result)
                 print(my_list)
             if select == 'N' or select == 'n':
                 continue
