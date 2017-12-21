@@ -1,4 +1,4 @@
-import csv, os
+import csv, os, sys
 
 # To clear content
 def cls():
@@ -97,30 +97,74 @@ def myList_print():
 def print_All():
     name = 0
     cls()
+    ## delete only if file exists ##
+    filename = 'teams.txt'
+    if os.path.exists(filename):
+        os.remove(filename)
+    else:
+        print("Sorry, I can not remove %s file." % filename)
     print_line()
     print('Group 1')
     print_line()
+    # Create new text file
+    with open('teams.txt', 'a') as txtFile:
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
+        txtFile.write('Group 1')
+        txtFile.write("\n")
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
     for name in listOne:
         chiku = {}
         chiku = temp_result.copy()
-        print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+        print(" Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+        # Add group 1 selected player list in text file
+        with open('teams.txt', 'a') as txtFile:
+            txtFile.write("Player : {} \n :Height-{},  Soccer Experience-{},  Guardian Name-{} \n ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+
     print_line()
     print('Group 2')
     print_line()
+
+    with open('teams.txt', 'a') as txtFile:
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
+        txtFile.write('Group 2')
+        txtFile.write("\n")
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
+
     for name in listTwo:
         chiku = {}
         chiku = temp_result.copy()
         print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+        # Add group 2 selected player list in text file
+        with open('teams.txt', 'a') as txtFile:
+            txtFile.write("Player : {} \n :Height-{},  Soccer Experience-{},  Guardian Name-{} \n ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
     print_line()
     print('Group 3')
     print_line()
+
+    with open('teams.txt', 'a') as txtFile:
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
+        txtFile.write('Group 3')
+        txtFile.write("\n")
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
     for name in listThree:
         chiku = {}
         chiku = temp_result.copy()
         print("Player {}:Height-{},  Soccer Experience-{},  Guardian Name-{} ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
+        # Add group 3 selected player list in text file
+        with open('teams.txt', 'a') as txtFile:
+            txtFile.write("Player : {} \n :Height-{},  Soccer Experience-{},  Guardian Name-{} \n ".format(name,chiku[name][0],chiku[name][1],chiku[name][2]))
     print_line()
 
-
+# Create text file
+def create_textFile():
+    with open('teams.txt', 'w') as txtFile:
+        txtFile.write()
 
 #temp_result = {}
 #temp_result = result.copy()
@@ -140,6 +184,13 @@ def createNew():
     my_list = []
     return result
 
+def command():
+    print("if you enter 'end' or 'exit then your programe goes closed \n")
+    print("if you enter ''YES' or 'NO' then you get list of experienced or non-experienced player list \n")
+    print("if you enter 'print' then you may gate selected group members list printed \n")
+    print("if you enter 'create' then you enter in group player selection part  \n")
+
+
 while True:
     # if you enter 'end' or 'exit then your programe goes closed
     # if you enter ''YES' or 'NO' then you get list of experienced or non-experienced player list
@@ -148,6 +199,9 @@ while True:
     word = input("enter your word >")
     ii = 0
     iii = 0
+    if word == 'command':
+        command()
+
     if word=='end' or word=='exit':
         break
     if word == 'YES' or word == 'NO':
@@ -168,6 +222,7 @@ while True:
         listThree = []
         my_list = []
     if word == 'create':
+        cls()
         groupName = input("Enter group name 1 or 2 or 3")
         if groupName == str(1):
             my_list = listOne
@@ -191,6 +246,8 @@ while True:
             iii += 1
             print("{} : {} count {}".format(key, result[key],iii))
             select = input("enter selection in 'y' or 'n' > ")
+            if select == 'close':
+                break
             if select == 'Y' or select == 'y':
 
                 if  iii == 18:
