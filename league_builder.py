@@ -1,12 +1,12 @@
 import csv, os, sys
 import os.path
+
 # To clear content
 def cls():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
-
 
 # Read csv file raw
 with  open("soccer_players.csv",'r') as csvfile:
@@ -15,6 +15,7 @@ with  open("soccer_players.csv",'r') as csvfile:
     pass
 
 # Create Dictionarys d and d1 both with key 'Name'
+
 d = {}
 d1 = {}
 d2 = {}
@@ -25,12 +26,11 @@ with open('soccer_players.csv') as f:
         #d.setdefault(row['Name'], {}).update({row['Height (inches)']: row['Soccer Experience']})
         d.update({row['Name']: row.pop('Height (inches)')})
         d1.update({row['Name']: row.pop('Soccer Experience')})
-
         d2.update( {row['Name']:row.pop('Guardian Name(s)')})
 
-
-print(d)
+#print(d)
 #print(d1)
+
 # Merge Both dictionary d and d1 having same key Name name result
 print("\n \n")
 
@@ -40,50 +40,60 @@ for key in (d.keys() | d1.keys() | d2.keys()):
     if key in d1: result.setdefault(key, []).append(d1[key])
     if key in d2: result.setdefault(key, []).append(d2[key])
 
-print (result)
+#print (result)
 
 temp_result = {}
 temp_result = result.copy()
-print(temp_result)
+#print(temp_result)
 
-#df = []
-#print(type(df))
+
 i = 0
 for key in  result:
     i += 1
     #print(key)
     #print(result[key])
 print("Total Number of players are {} \n so In each team there would be 6 members will come!".format(i))
-print(result['Ben Finkelstein'][2])
-# create new csv file named reult.csv
+#print(result['Ben Finkelstein'][2])
 
-with open('tempLeagueDict.csv', 'w') as csvfile:
-    fieldNames = {'Name', 'Height (inches)', 'Soccer Experience', 'Guardian Name(s)'}
-    fileLeagueWriter = csv.DictWriter(csvfile, fieldNames)
-    fileLeagueWriter.writeheader()
-    for key, value in sorted(result.items(), key=lambda item: ('Name','Height (inches)', 'Soccer Experience', 'Guardian Name(s)')):
-        fileLeagueWriter.writerow({
-            'Name':key,
-            'Height (inches)':result[key][0],
-            'Soccer Experience':result[key][1],
-            'Guardian Name(s)':result[key][2]
-        })
+# create new csv file named reult.csv
+def createCSVFile():
+    with open('tempLeagueDict.csv', 'w') as csvfile:
+        fieldNames = {'Name', 'Height (inches)', 'Soccer Experience', 'Guardian Name(s)'}
+        fileLeagueWriter = csv.DictWriter(csvfile, fieldNames)
+        fileLeagueWriter.writeheader()
+        for key, value in sorted(result.items(),
+                                 key=lambda item: ('Name', 'Height (inches)', 'Soccer Experience', 'Guardian Name(s)')):
+            fileLeagueWriter.writerow({
+                'Name': key,
+                'Height (inches)': result[key][0],
+                'Soccer Experience': result[key][1],
+                'Guardian Name(s)': result[key][2]
+            })
+
+
 
 def print_line():
     print("-"*60)
 
 # rearranging order
-with open('tempLeagueDict.csv', 'r') as infile, open('reordered.csv', 'w') as outfile:
-    # output dict needs a list for new column ordering
-    fieldnames = ['Name', 'Height (inches)', 'Soccer Experience', 'Guardian Name(s)']
-    writer = csv.DictWriter(outfile, fieldnames=fieldnames)
-    # reorder the header first
-    writer.writeheader()
-    for row in csv.DictReader(infile):
-        # writes the reordered rows to the new file
-        writer.writerow(row)
+def rearrangingOrder():
+    with open('tempLeagueDict.csv', 'r') as infile, open('reordered.csv', 'w') as outfile:
+        # output dict needs a list for new column ordering
+        fieldnames = ['Name', 'Height (inches)', 'Soccer Experience', 'Guardian Name(s)']
+        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+        # reorder the header first
+        writer.writeheader()
+        for row in csv.DictReader(infile):
+            # writes the reordered rows to the new file
+            writer.writerow(row)
+
+
+
 #Group name retutn function
 def findGroup(yourGroup):
+    '''
+    enter group list and returns Name of Group
+    '''
     if yourGroup == listOne:
         return 'Dragons'
     if yourGroup == listTwo:
@@ -94,6 +104,9 @@ def findGroup(yourGroup):
 
 # small print group list function
 def myList_print():
+    '''
+    it selects group printing if you select 1, 2, or 3
+    '''
     myGroup = input('enter group name for print >')
     if myGroup == str(1):
         print(listOne)
@@ -103,6 +116,10 @@ def myList_print():
         print(listThree)
 
 def print_All():
+    '''
+    function creates 'team.txt' file that shows three team finalized with all players details
+    Showing thier group.
+    '''
     name = 0
     cls()
     ## delete only if file exists ##
@@ -171,17 +188,17 @@ def print_All():
 
 #---------------------create letters to all soccer group members--------------------
 def print_all_individul_members_ofAllGroup():
+    '''This function creates text letters to all players parents welcoming and intimation in subfolder 'letters'. '''
     global listOne, listTwo, listThree
 
-
     group_list = [listOne,listTwo,listThree]
-    print(listOne)
+    #print(listOne)
     #xx = 0
     #yy = 0
     for yy in group_list:
         #xx = 0
-        print("llll")
-        print(yy)
+        #print("llll")
+        #print(yy)
         for xx in yy:
             group = findGroup(yy)
             print(xx)
@@ -254,6 +271,7 @@ def command():
     print("4. if you enter 'create' then you enter in group player selection part  \n")
     print("5. You can come out from group creation/selection typing 'close' at the prompt >> and gets prompt >>> \n ")
     print("6. Selection Help::Enter 1 for Group Name 'Dragons', 2 for 'Sharks', 3 for 'Raptors' in selection prompt > \n")
+    print("7. Enter 'letter l' for creating text files (Well Come Letters) to all players in subfolder 'letters'  ")
 
 cls()
 
