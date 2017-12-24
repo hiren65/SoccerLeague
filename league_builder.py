@@ -1,5 +1,5 @@
 import csv, os, sys
-
+import os.path
 # To clear content
 def cls():
     if os.name == 'nt':
@@ -171,38 +171,53 @@ def print_All():
 
 #---------------------create letters to all soccer group members--------------------
 def print_all_individul_members_ofAllGroup():
-    global listOne, d
+    global listOne, listTwo, listThree
 
 
-
+    group_list = [listOne,listTwo,listThree]
     print(listOne)
-    xx = 0
-    for xx in listOne:
-        group = findGroup(listOne)
-        print(xx)
-        player = "{}".format(xx)
-        player1 = player.replace(" ", "_")
-        fileNamePlayer = "{}.txt".format(player1.lower())
-        print(player1)
-        print(fileNamePlayer)
-        for key in temp_result:
-            if key==xx:
-                print(key)
-                print('nnnn')
-                print(temp_result[key][2])
-                parents = temp_result[key][2]
-        #parents = result[xx][2]
-        #print('parents = {}'.format(parents))
-        with open(fileNamePlayer, 'w') as txtFile:
-            line1 = " Well Come Letter \n"
-            line2 = ' Dear {}, \n'.format(parents)
-            line3 = ' We would like to welcome your son {} in Soccer League Group {} \n'.format(player, group)
-            line4 = ' On Date 28 January 2018 newly formed group will start its practise at 8:00 AM \n'
-            line5 = ' We are looking forward {} at the venue. \n \n'.format(player)
-            line6 = ' Best Regards, \n {} Team \n H Devis'.format(group)
+    #xx = 0
+    #yy = 0
+    for yy in group_list:
+        #xx = 0
+        print("llll")
+        print(yy)
+        for xx in yy:
+            group = findGroup(yy)
+            print(xx)
+            player = "{}".format(xx)
+            player1 = player.replace(" ", "_")
+            fileNamePlayer = "{}.txt".format(player1.lower())
+            print(player1)
+            print(fileNamePlayer)
+            for key in temp_result:
+                if key == xx:
+                    print(key)
+                    print('nnnn')
+                    print(temp_result[key][2])
+                    parents = temp_result[key][2]
+            # parents = result[xx][2]
+            # print('parents = {}'.format(parents))
+            subDrectory = "letters"
+            try:
+                os.mkdir(subDrectory)
+            except Exception:
+                pass
+            with open(os.path.join(subDrectory, fileNamePlayer), 'w') as txtFile:
+                line1 = " Well Come Letter \n"
+                line2 = ' Dear {}, \n'.format(parents)
+                line3 = ' We would like to welcome your son {} in Soccer League Group {} \n'.format(player, group)
+                line4 = ' On Date 28 January 2018 newly formed group will start its practise at 8:00 AM \n'
+                line5 = ' We are looking forward {} at the venue. \n \n'.format(player)
+                line6 = ' Best Regards, \n {} Team \n H Devis'.format(group)
 
-            finalLine = line1+line2+line3 + line4 +line5 + line6
-            txtFile.write(finalLine)
+                finalLine = line1 + line2 + line3 + line4 + line5 + line6
+                txtFile.write(finalLine)
+
+
+
+
+
 
 
 #---------------------create letters end-----------------
