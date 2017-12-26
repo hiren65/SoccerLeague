@@ -233,10 +233,6 @@ def print_all_individul_members_ofAllGroup():
 
 
 
-
-
-
-
 #---------------------create letters end-----------------
 
 # Create text file
@@ -272,6 +268,8 @@ def command():
     print("5. You can come out from group creation/selection typing 'close' at the prompt >> and gets prompt >>> \n ")
     print("6. Selection Help::Enter 1 for Group Name 'Dragons', 2 for 'Sharks', 3 for 'Raptors' in selection prompt > \n")
     print("7. Enter 'letter l' for creating text files (Well Come Letters) to all players in subfolder 'letters'  ")
+    print("8. Enter 'newcreate' after finishing for new arranged formation of group")
+    print("9. Enter 'auto' or 'a' then team will devide automatic in three parts and teams.txt file generates")
 
 cls()
 
@@ -299,6 +297,10 @@ def mainFun():
 
         if word == 'end' or word == 'exit':
             print("Thank You, Programme is going to close!!")
+            break
+        if word == "auto" or word == "a":
+            autumatic_selection_team()
+            print("three team selected and teams.txt file generated")
             break
         if word == 'YES' or word == 'NO':
             for key in result.copy():
@@ -364,10 +366,147 @@ def mainFun():
                 if select == 'N' or select == 'n':
                     continue
 
+expList = []
+unexpList = []
+group1 = []
+group2 = []
+group3 = []
+import random
+def autumatic_selection_team():
+    for key in  result.copy():
+        print(result[key][1])
+        if result[key][1] == 'YES':
+            expList.append(key)
+        if result[key][1] == 'NO':
+            unexpList.append(key)
+
+    print(expList)
+    print(unexpList)
+    nn = len(expList)
+    print(nn)
+    #r = random.randint(0,nn-1)
+    num = 0
+    while True:
+        if len(expList)==0:
+            print(expList)
+            print(group1)
+            print(group2)
+            print(group3)
+            break
+        #print(expList[num])
+        if num == 100:
+            print("hi")
+            print(group1)
+            print(group2)
+            print(group3)
+
+            num = 0
+            #break
+
+        r = random.randint(1, 3)
+        #print("num = {} and expList {}".format(num),expList[num-1])
+        #print(expList[r])
+        #expList.pop(0)
+        if r == 1:
+            if len(group1)==3:
+                continue
+            group1.append(expList[num])
+            expList.pop(num)
+            #num += 1
+        if r == 2:
+            if len(group2)==3:
+                continue
+            group2.append(expList[num])
+            expList.pop(num)
+            #num += 1
+        if r == 3:
+            if len(group3)==3:
+                continue
+            group3.append(expList[num])
+            expList.pop(num)
+            #num = 0
+    num = 0
+    while True:
+        if len(unexpList)==0:
+            print(unexpList)
+            print(group1)
+            print(group2)
+            print(group3)
+            break
+        #print(expList[num])
+        if num == 100:
+            print("hi")
+            print(group1)
+            print(group2)
+            print(group3)
+
+            num = 0
+            #break
+
+        r = random.randint(1, 3)
+        #print("num = {} and expList {}".format(num),expList[num-1])
+        #print(expList[r])
+        #expList.pop(0)
+        if r == 1:
+            if len(group1)==6:
+                continue
+            group1.append(unexpList[num])
+            unexpList.pop(num)
+            #num += 1
+        if r == 2:
+            if len(group2)==6:
+                continue
+            group2.append(unexpList[num])
+            unexpList.pop(num)
+            #num += 1
+        if r == 3:
+            if len(group3)==6:
+                continue
+            group3.append(unexpList[num])
+            unexpList.pop(num)
+            #num = 0
+    with open("Teams.txt",'w') as f:
+        f.write("-"*60)
+        f.write("\n")
+        f.write('Soccer Team Groups \n')
+        f.write("-" * 60)
+        f.write("\n")
+        print_line()
+        f.write("Group Name Dragons \n")
+        for player in group1:
+            for key in result:
+                if player == key:
+                    f.write("Player Name:: {} \n".format(player))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
+                                                                                             result[player][1],
+                                                                                             result[player][2]))
+        f.write("-" * 60)
+        f.write("\n")
+        f.write("Group Name Sharks \n")
+        for player in group2:
+            for key in result:
+                if player == key:
+                    f.write("Player Name:: {} \n".format(player))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
+                                                                                             result[player][1],
+                                                                                             result[player][2]))
+        f.write("-" * 60)
+        f.write("\n")
+        f.write("Group Name Raptors \n")
+        for player in group3:
+            for key in result:
+                if player == key:
+                    f.write("Player Name:: {} \n".format(player))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
+                                                                                             result[player][1],
+                                                                                             result[player][2]))
+
+
+
 
 
 mainFun()
-
+#autumatic_selection_team()
 
 
 
