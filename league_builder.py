@@ -94,11 +94,11 @@ def findGroup(yourGroup):
     '''
     enter group list and returns Name of Group
     '''
-    if yourGroup == listOne:
+    if yourGroup == listOne or yourGroup == group1:
         return 'Dragons'
-    if yourGroup == listTwo:
+    if yourGroup == listTwo or yourGroup == group2:
         return 'Sharks'
-    if yourGroup == listThree:
+    if yourGroup == listThree or yourGroup == group3:
         return 'Raptors'
 
 
@@ -117,7 +117,7 @@ def myList_print():
 
 def print_All():
     '''
-    function creates 'team.txt' file that shows three team finalized with all players details
+    function creates 'teams.txt' file that shows three team finalized with all players details
     Showing thier group.
     '''
     name = 0
@@ -267,9 +267,10 @@ def command():
     print("4. if you enter 'create' then you enter in group player selection part  \n")
     print("5. You can come out from group creation/selection typing 'close' at the prompt >> and gets prompt >>> \n ")
     print("6. Selection Help::Enter 1 for Group Name 'Dragons', 2 for 'Sharks', 3 for 'Raptors' in selection prompt > \n")
-    print("7. Enter 'letter l' for creating text files (Well Come Letters) to all players in subfolder 'letters'  ")
-    print("8. Enter 'newcreate' after finishing for new arranged formation of group")
-    print("9. Enter 'auto' or 'a' then team will devide automatic in three parts and teams.txt file generates")
+    print("7. if you enter 'rint all' then teams.txt file will generate. Make sure manual selection completed before it ")
+    print("8. Enter 'letter l' for creating text files (Well Come Letters) to all players in subfolder 'letters'  ")
+    print("9. Enter 'newcreate' after finishing for new arranged formation of group")
+    print("10. Enter 'auto' or 'a' then team will devide automatic in three parts and teams.txt file generates")
 
 cls()
 
@@ -465,7 +466,7 @@ def autumatic_selection_team():
             group3.append(unexpList[num])
             unexpList.pop(num)
             #num = 0
-    with open("Teams.txt",'w') as f:
+    with open("teams.txt",'w') as f:
         f.write("-"*60)
         f.write("\n")
         f.write('Soccer Team Groups \n')
@@ -500,10 +501,60 @@ def autumatic_selection_team():
                     f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
                                                                                              result[player][1],
                                                                                              result[player][2]))
+        print_Automatic_all_individul_members_ofAllGroup(group1,group2,group3)
 
 
 
 
+
+#---------------------Automatic create letters to all soccer group members--------------------
+def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
+    '''This function creates text letters to all players parents welcoming and intimation in subfolder 'letters'. '''
+    #global listOne, listTwo, listThree
+
+    group_list = [g1,g2,g3]
+    #print(listOne)
+    #xx = 0
+    #yy = 0
+    for yy in group_list:
+        #xx = 0
+        #print("llll")
+        #print(yy)
+        for xx in yy:
+            group = findGroup(yy)
+            print(xx)
+            player = "{}".format(xx)
+            player1 = player.replace(" ", "_")
+            fileNamePlayer = "{}.txt".format(player1.lower())
+            print(player1)
+            print(fileNamePlayer)
+            for key in temp_result:
+                if key == xx:
+                    print(key)
+                    print('nnnn')
+                    print(temp_result[key][2])
+                    parents = temp_result[key][2]
+            # parents = result[xx][2]
+            # print('parents = {}'.format(parents))
+            subDrectory = "letters"
+            try:
+                os.mkdir(subDrectory)
+            except Exception:
+                pass
+            with open(os.path.join(subDrectory, fileNamePlayer), 'w') as txtFile:
+                line1 = " Well Come Letter \n"
+                line2 = ' Dear {}, \n'.format(parents)
+                line3 = ' We would like to welcome your son {} in Soccer League Group {} \n'.format(player, group)
+                line4 = ' On Date 28 January 2018 newly formed group will start its practise at 8:00 AM \n'
+                line5 = ' We are looking forward {} at the venue. \n \n'.format(player)
+                line6 = ' Best Regards, \n {} Team \n H Devis'.format(group)
+
+                finalLine = line1 + line2 + line3 + line4 + line5 + line6
+                txtFile.write(finalLine)
+
+
+
+#--------------------- Automatic create letters end-----------------
 
 mainFun()
 #autumatic_selection_team()
