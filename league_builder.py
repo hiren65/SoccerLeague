@@ -107,13 +107,33 @@ def myList_print():
     '''
     it selects group printing if you select 1, 2, or 3
     '''
-    myGroup = input('enter group name for print >')
-    if myGroup == str(1):
-        print(listOne)
-    if myGroup == str(2):
-        print(listTwo)
-    if myGroup == str(3):
-        print(listThree)
+    #myGroup = input('enter group name for print >')
+    #if myGroup == str(1):
+    print("group 1")
+    print(listOne)
+    for key in temp_result:
+        for item in listOne:
+            if item == key:
+                #print(temp_result[key][0])
+                print("Name:{},Height:{},Experience:{},Parents name:{}".format(key,temp_result[item][0],temp_result[item][1],temp_result[item][2]))
+    #if myGroup == str(2):
+    print("group 2")
+    print(listTwo)
+    for key in temp_result:
+        for item in listTwo:
+            if item == key:
+                print("Name:{},Height:{},Experience:{},Parents name:{}".format(key, temp_result[item][0],
+                                                                               temp_result[item][1],
+                                                                               temp_result[item][2]))
+    #if myGroup == str(3):
+    print("group 3")
+    print(listThree)
+    for key in temp_result:
+        for item in listThree:
+            if item == key:
+                print("Name:{},Height:{},Experience:{},Parents name:{}".format(key, temp_result[item][0],
+                                                                               temp_result[item][1],
+                                                                               temp_result[item][2]))
 
 def print_All():
     '''
@@ -290,19 +310,20 @@ def mainFun():
             command()
             command_count = 1;
         print_line()
-        word = input("enter your word >>> ")
+        word = input("For automatic selection enter 'a', for manual selection enter 'create', \nenter command >>> ")
         ii = 0
         iii = 0
         if word == 'command':
             command()
+            continue
 
         if word == 'end' or word == 'exit':
             print("Thank You, Programme is going to close!!")
             break
         if word == "auto" or word == "a":
             autumatic_selection_team()
-            print("three team selected and teams.txt file generated")
-            break
+            print("software generated three team selected and teams.txt file generated")
+            continue
         if word == 'YES' or word == 'NO':
             for key in result.copy():
 
@@ -310,20 +331,25 @@ def mainFun():
                     ii += 1;
                     print("{} : {}".format(key, result[key]))
             print('Total Number {} expericed {} '.format(ii, word))
+            continue
         if word == 'print':
             cls()
             myList_print()
+            continue
         if word == 'print all':
             cls()
             print_All()
+            continue
         if word == 'newcreate':
             result = createNew()
             listOne = []
             listTwo = []
             listThree = []
             my_list = []
+            continue
         if word == 'print l':
             print_all_individul_members_ofAllGroup()
+            continue
         if word == 'create':
             cls()
             print("You can come out from group creation typing 'close' ")
@@ -366,7 +392,10 @@ def mainFun():
                     print(my_list)
                 if select == 'N' or select == 'n':
                     continue
-
+        else:
+            print("Not in command list, type command to learn!!")
+            continue
+#-------------------------------end of main --------------------------------------------------------------
 expList = []
 unexpList = []
 group1 = []
@@ -374,11 +403,11 @@ group2 = []
 group3 = []
 import random
 def autumatic_selection_team():
-    for key in  result.copy():
-        print(result[key][1])
-        if result[key][1] == 'YES':
+    for key in  temp_result.copy():
+        print(temp_result[key][1])
+        if temp_result[key][1] == 'YES':
             expList.append(key)
-        if result[key][1] == 'NO':
+        if temp_result[key][1] == 'NO':
             unexpList.append(key)
 
     print(expList)
@@ -466,6 +495,15 @@ def autumatic_selection_team():
             group3.append(unexpList[num])
             unexpList.pop(num)
             #num = 0
+    cls()
+    ## delete only if file exists ##
+    filename = 'teams.txt'
+    if os.path.exists(filename):
+        os.remove(filename)
+    else:
+        print("Sorry, I can not remove %s file." % filename)
+
+
     with open("teams.txt",'w') as f:
         f.write("-"*60)
         f.write("\n")
@@ -475,32 +513,32 @@ def autumatic_selection_team():
         print_line()
         f.write("Group Name Dragons \n")
         for player in group1:
-            for key in result:
+            for key in temp_result:
                 if player == key:
                     f.write("Player Name:: {} \n".format(player))
-                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
-                                                                                             result[player][1],
-                                                                                             result[player][2]))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(temp_result[player][0],
+                                                                                             temp_result[player][1],
+                                                                                             temp_result[player][2]))
         f.write("-" * 60)
         f.write("\n")
         f.write("Group Name Sharks \n")
         for player in group2:
-            for key in result:
+            for key in temp_result:
                 if player == key:
                     f.write("Player Name:: {} \n".format(player))
-                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
-                                                                                             result[player][1],
-                                                                                             result[player][2]))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(temp_result[player][0],
+                                                                                             temp_result[player][1],
+                                                                                             temp_result[player][2]))
         f.write("-" * 60)
         f.write("\n")
         f.write("Group Name Raptors \n")
         for player in group3:
-            for key in result:
+            for key in temp_result:
                 if player == key:
                     f.write("Player Name:: {} \n".format(player))
-                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(result[player][0],
-                                                                                             result[player][1],
-                                                                                             result[player][2]))
+                    f.write('Deatils :: Height {}, Experience {}, Parents Name {} \n'.format(temp_result[player][0],
+                                                                                             temp_result[player][1],
+                                                                                             temp_result[player][2]))
         print_Automatic_all_individul_members_ofAllGroup(group1,group2,group3)
 
 
@@ -551,6 +589,8 @@ def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
 
                 finalLine = line1 + line2 + line3 + line4 + line5 + line6
                 txtFile.write(finalLine)
+                cls()
+                print("teams.txt file generated in the working folder and Created 18 text files ('welcome' letters to the players' guardians) in subfolder letters. ")
 
 
 
