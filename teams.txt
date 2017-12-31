@@ -1,44 +1,45 @@
 ------------------------------------------------------------
 Soccer Team Groups 
+Computer Generated Groups 
 ------------------------------------------------------------
 Group Name Dragons 
+Player Name:: Herschel Krustofski 
+Deatils :: Height 45, Experience YES, Parents Name Hyman and Rachel Krustofski 
+Player Name:: Suzane Greenberg 
+Deatils :: Height 44, Experience YES, Parents Name Henrietta Dumas 
+Player Name:: Diego Soto 
+Deatils :: Height 41, Experience YES, Parents Name Robin and Sarika Soto 
+Player Name:: Kimmy Stein 
+Deatils :: Height 41, Experience NO, Parents Name Bill and Hillary Stein 
+Player Name:: Arnold Willis 
+Deatils :: Height 43, Experience NO, Parents Name Claire Willis 
+Player Name:: Ben Finkelstein 
+Deatils :: Height 44, Experience NO, Parents Name Aaron and Jill Finkelstein 
+------------------------------------------------------------
+Group Name Sharks 
 Player Name:: Joe Smith 
 Deatils :: Height 42, Experience YES, Parents Name Jim and Jan Smith 
 Player Name:: Karl Saygan 
 Deatils :: Height 42, Experience YES, Parents Name Heather Bledsoe 
-Player Name:: Herschel Krustofski 
-Deatils :: Height 45, Experience YES, Parents Name Hyman and Rachel Krustofski 
-Player Name:: Ben Finkelstein 
-Deatils :: Height 44, Experience NO, Parents Name Aaron and Jill Finkelstein 
-Player Name:: Arnold Willis 
-Deatils :: Height 43, Experience NO, Parents Name Claire Willis 
-Player Name:: Sammy Adams 
-Deatils :: Height 45, Experience NO, Parents Name Jeff Adams 
-------------------------------------------------------------
-Group Name Sharks 
-Player Name:: Bill Bon 
-Deatils :: Height 43, Experience YES, Parents Name Sara and Jenny Bon 
-Player Name:: Phillip Helm 
-Deatils :: Height 44, Experience YES, Parents Name Thomas Helm and Eva Jones 
-Player Name:: Les Clay 
-Deatils :: Height 42, Experience YES, Parents Name Wynonna Brown 
-Player Name:: Matt Gill 
-Deatils :: Height 40, Experience NO, Parents Name Charles and Sylvia Gill 
-Player Name:: Kimmy Stein 
-Deatils :: Height 41, Experience NO, Parents Name Bill and Hillary Stein 
-Player Name:: Joe Kavalier 
-Deatils :: Height 39, Experience NO, Parents Name Sam and Elaine Kavalier 
-------------------------------------------------------------
-Group Name Raptors 
-Player Name:: Suzane Greenberg 
-Deatils :: Height 44, Experience YES, Parents Name Henrietta Dumas 
 Player Name:: Jill Tanner 
 Deatils :: Height 36, Experience YES, Parents Name Clara Tanner 
-Player Name:: Diego Soto 
-Deatils :: Height 41, Experience YES, Parents Name Robin and Sarika Soto 
+Player Name:: Matt Gill 
+Deatils :: Height 40, Experience NO, Parents Name Charles and Sylvia Gill 
+Player Name:: Sammy Adams 
+Deatils :: Height 45, Experience NO, Parents Name Jeff Adams 
 Player Name:: Sal Dali 
 Deatils :: Height 41, Experience NO, Parents Name Gala Dali 
+------------------------------------------------------------
+Group Name Raptors 
+Player Name:: Phillip Helm 
+Deatils :: Height 44, Experience YES, Parents Name Thomas Helm and Eva Jones 
+Player Name:: Bill Bon 
+Deatils :: Height 43, Experience YES, Parents Name Sara and Jenny Bon 
+Player Name:: Les Clay 
+Deatils :: Height 42, Experience YES, Parents Name Wynonna Brown 
 Player Name:: Eva Gordon 
 Deatils :: Height 45, Experience NO, Parents Name Wendy and Mike Gordon 
 Player Name:: Chloe Alaska 
 Deatils :: Height 47, Experience NO, Parents Name David and Jamie Alaska 
+Player Name:: Joe Kavalier 
+Deatils :: Height 39, Experience NO, Parents Name Sam and Elaine Kavalier 

@@ -393,7 +393,7 @@ def mainFun():
                 if select == 'N' or select == 'n':
                     continue
         else:
-            print("Not in command list, type command to learn!!")
+            print("Not in command list, type 'command' to learn!!")
             continue
 #-------------------------------end of main --------------------------------------------------------------
 expList = []
@@ -403,13 +403,30 @@ group2 = []
 group3 = []
 import random
 def autumatic_selection_team():
+    '''
+    this function is for automatic creation of three teams and generates 'teams.txt' and
+    craetes individual letters in the players [name].txt in folder 'letters'
+    '''
+    global expList
+    global unexpList
+    global  group1
+    global group2
+    global group3
+    #it is necessary to make lists blank for repeat interation in program.
+    group1 = []
+    group2 = []
+    group3 = []
+
+
+    expList = []
+    unexpList = []
     for key in  temp_result.copy():
         print(temp_result[key][1])
         if temp_result[key][1] == 'YES':
             expList.append(key)
         if temp_result[key][1] == 'NO':
             unexpList.append(key)
-
+    #print('---++++++++++')
     print(expList)
     print(unexpList)
     nn = len(expList)
@@ -432,7 +449,7 @@ def autumatic_selection_team():
 
             num = 0
             #break
-
+        #random selection of group for members
         r = random.randint(1, 3)
         #print("num = {} and expList {}".format(num),expList[num-1])
         #print(expList[r])
@@ -500,6 +517,7 @@ def autumatic_selection_team():
     filename = 'teams.txt'
     if os.path.exists(filename):
         os.remove(filename)
+        #print("pppppppppppppp \n"*9)
     else:
         print("Sorry, I can not remove %s file." % filename)
 
@@ -508,6 +526,7 @@ def autumatic_selection_team():
         f.write("-"*60)
         f.write("\n")
         f.write('Soccer Team Groups \n')
+        f.write('Computer Generated Groups \n')
         f.write("-" * 60)
         f.write("\n")
         print_line()
@@ -547,13 +566,13 @@ def autumatic_selection_team():
 
 #---------------------Automatic create letters to all soccer group members--------------------
 def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
-    '''This function creates text letters to all players parents welcoming and intimation in subfolder 'letters'. '''
+    '''This function creates text letters to all players parents welcoming and intimation in subfolder 'letters'.
+        All txt files will be in players name in lower case
+     '''
     #global listOne, listTwo, listThree
 
     group_list = [g1,g2,g3]
-    #print(listOne)
-    #xx = 0
-    #yy = 0
+
     for yy in group_list:
         #xx = 0
         #print("llll")
@@ -596,7 +615,57 @@ def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
 
 #--------------------- Automatic create letters end-----------------
 
-mainFun()
+def create_group(group1_list,group2_list,group3_list):
+    cls()
+    iii = 0
+    print("You can come out from group creation typing 'close' ")
+    print("Selection Help:: 1 for Dragons, 2 for Shark, 3 for Raptors")
+    groupName = input("Enter group name 1 or 2 or 3 >>")
+    if groupName == str(1):
+        my_list = group1_list
+    elif groupName == str(2):
+        my_list = group2_list
+    elif groupName == str(3):
+        my_list = group3_list
+    else:
+        print('Wrong Selection, Select 1 or 2 or 3')
+        return  0
+    print("Your selected {}".format(groupName))
+    # print(result.copy())
+    for key in result.copy():
+        if len(my_list) >= 6:
+            print('there is limit of 6 in single group')
+            print("Type 'print' command will show your selected group ")
+            print("Type 'print all' give selected and finalized team list in 'teams.txt' file ")
+            if groupName == 1:
+                listOne = my_list
+            if groupName == 2:
+                listTwo = my_list
+            if groupName == 3:
+                listThree = my_list
+            my_list = []
+            break
+        iii += 1
+        print("{} : {} count {}".format(key, result[key], iii))
+        select = input("enter selection in 'y' or 'n' > ")
+        if select == 'close':
+            break
+        if select == 'Y' or select == 'y':
+            my_list.append(key)
+            result.pop(key, None)
+            cls()
+            # print(result)
+            print(my_list)
+        if select == 'N' or select == 'n':
+            continue
+
+#------------------------------------------------------------------
+
+if __name__== '__main__':
+    mainFun()
+
+
+
 #autumatic_selection_team()
 
 
