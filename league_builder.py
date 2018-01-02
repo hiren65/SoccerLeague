@@ -8,51 +8,7 @@ def cls():
     else:
         os.system('clear')
 
-# Read csv file raw
-with  open("soccer_players.csv",'r') as csvfile:
-    for line in csvfile:
-        print(line)
-    pass
 
-# Create Dictionarys d and d1 both with key 'Name'
-
-d = {}
-d1 = {}
-d2 = {}
-list1 = []
-with open('soccer_players.csv') as f:
-    readers = csv.DictReader(f)
-    for row in readers:
-        #d.setdefault(row['Name'], {}).update({row['Height (inches)']: row['Soccer Experience']})
-        d.update({row['Name']: row.pop('Height (inches)')})
-        d1.update({row['Name']: row.pop('Soccer Experience')})
-        d2.update( {row['Name']:row.pop('Guardian Name(s)')})
-
-#print(d)
-#print(d1)
-
-# Merge Both dictionary d and d1 having same key Name name result
-print("\n \n")
-
-result = {}
-for key in (d.keys() | d1.keys() | d2.keys()):
-    if key in d: result.setdefault(key, []).append(d[key])
-    if key in d1: result.setdefault(key, []).append(d1[key])
-    if key in d2: result.setdefault(key, []).append(d2[key])
-
-#print (result)
-
-temp_result = {}
-temp_result = result.copy()
-#print(temp_result)
-
-
-i = 0
-for key in  result:
-    i += 1
-    #print(key)
-    #print(result[key])
-print("Total Number of players are {} \n so In each team there would be 6 members will come!".format(i))
 #print(result['Ben Finkelstein'][2])
 
 # create new csv file named reult.csv
@@ -155,6 +111,10 @@ def print_All():
     with open('teams.txt', 'a') as txtFile:
         txtFile.write("-" * 50)
         txtFile.write("\n")
+        txtFile.write("Soccer Team Groups \n")
+        txtFile.write("Method :: Manually Selected and created Groups")
+        txtFile.write("-" * 50)
+        txtFile.write("\n")
         txtFile.write('Group 1 Dragons')
         txtFile.write("\n")
         txtFile.write("-" * 50)
@@ -213,25 +173,21 @@ def print_all_individul_members_ofAllGroup():
 
     group_list = [listOne,listTwo,listThree]
     #print(listOne)
-    #xx = 0
-    #yy = 0
+
     for yy in group_list:
-        #xx = 0
-        #print("llll")
+
         #print(yy)
         for xx in yy:
             group = findGroup(yy)
-            print(xx)
+            #print(xx)
             player = "{}".format(xx)
             player1 = player.replace(" ", "_")
             fileNamePlayer = "{}.txt".format(player1.lower())
-            print(player1)
-            print(fileNamePlayer)
+
             for key in temp_result:
                 if key == xx:
-                    print(key)
-                    print('nnnn')
-                    print(temp_result[key][2])
+
+                    #print(temp_result[key][2])
                     parents = temp_result[key][2]
             # parents = result[xx][2]
             # print('parents = {}'.format(parents))
@@ -260,15 +216,7 @@ def create_textFile():
     with open('teams.txt', 'w') as txtFile:
         txtFile.write()
 
-#temp_result = {}
-#temp_result = result.copy()
-#print(temp_result)
 
-listOne = []
-listTwo = []
-listThree = []
-my_list = []
-tito = 89
 
 def createNew():
     result = temp_result.copy()
@@ -284,12 +232,12 @@ def command():
     print("1. if you enter 'end' or 'exit' then your programe goes closed at prompt >>>  \n")
     print("2. if you enter ''YES' or 'NO' then you get list of experienced or non-experienced player list \n")
     print("3. if you enter 'print' then you may gate selected group members list printed \n")
-    print("4. if you enter 'create' then you enter in group player selection part  \n")
+    print("4. if you enter 'create' or 'c' then you enter in group player selection part  \n")
     print("5. You can come out from group creation/selection typing 'close' at the prompt >> and gets prompt >>> \n ")
     print("6. Selection Help::Enter 1 for Group Name 'Dragons', 2 for 'Sharks', 3 for 'Raptors' in selection prompt > \n")
-    print("7. if you enter 'rint all' then teams.txt file will generate. Make sure manual selection completed before it ")
+    print("7. if you enter 'print all' then teams.txt file will generate. Make sure manual selection completed before it ")
     print("8. Enter 'letter l' for creating text files (Well Come Letters) to all players in subfolder 'letters'  ")
-    print("9. Enter 'newcreate' after finishing for new arranged formation of group")
+    print("9. Enter 'newcreate' or new c' after finishing for new arranged formation of group")
     print("10. Enter 'auto' or 'a' then team will devide automatic in three parts and teams.txt file generates")
 
 cls()
@@ -340,7 +288,7 @@ def mainFun():
             cls()
             print_All()
             continue
-        if word == 'newcreate':
+        if word == 'newcreate' or word == 'new c':
             result = createNew()
             listOne = []
             listTwo = []
@@ -349,8 +297,9 @@ def mainFun():
             continue
         if word == 'print l':
             print_all_individul_members_ofAllGroup()
+            print("All 18 players [name].txt files in lowercase generate in 'letters' subfolder. ")
             continue
-        if word == 'create':
+        if word == 'create' or word == 'c':
             cls()
             print("You can come out from group creation typing 'close' ")
             print("Selection Help:: 1 for Dragons, 2 for Shark, 3 for Raptors")
@@ -396,11 +345,7 @@ def mainFun():
             print("Not in command list, type 'command' to learn!!")
             continue
 #-------------------------------end of main --------------------------------------------------------------
-expList = []
-unexpList = []
-group1 = []
-group2 = []
-group3 = []
+
 import random
 def autumatic_selection_team():
     '''
@@ -421,7 +366,7 @@ def autumatic_selection_team():
     expList = []
     unexpList = []
     for key in  temp_result.copy():
-        print(temp_result[key][1])
+        #print(temp_result[key][1])
         if temp_result[key][1] == 'YES':
             expList.append(key)
         if temp_result[key][1] == 'NO':
@@ -430,22 +375,15 @@ def autumatic_selection_team():
     print(expList)
     print(unexpList)
     nn = len(expList)
-    print(nn)
+    #print(nn)
     #r = random.randint(0,nn-1)
     num = 0
     while True:
         if len(expList)==0:
-            print(expList)
-            print(group1)
-            print(group2)
-            print(group3)
+
             break
         #print(expList[num])
         if num == 100:
-            print("hi")
-            print(group1)
-            print(group2)
-            print(group3)
 
             num = 0
             #break
@@ -475,18 +413,10 @@ def autumatic_selection_team():
     num = 0
     while True:
         if len(unexpList)==0:
-            print(unexpList)
-            print(group1)
-            print(group2)
-            print(group3)
+
             break
         #print(expList[num])
         if num == 100:
-            print("hi")
-            print(group1)
-            print(group2)
-            print(group3)
-
             num = 0
             #break
 
@@ -526,7 +456,7 @@ def autumatic_selection_team():
         f.write("-"*60)
         f.write("\n")
         f.write('Soccer Team Groups \n')
-        f.write('Computer Generated Groups \n')
+        f.write('Method :: Computer Generated Groups \n')
         f.write("-" * 60)
         f.write("\n")
         print_line()
@@ -579,19 +509,19 @@ def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
         #print(yy)
         for xx in yy:
             group = findGroup(yy)
-            print(xx)
+            #print(xx)
             player = "{}".format(xx)
             player1 = player.replace(" ", "_")
             fileNamePlayer = "{}.txt".format(player1.lower())
-            print(player1)
-            print(fileNamePlayer)
+            #print(player1)
+            #print(fileNamePlayer)
             for key in temp_result:
                 if key == xx:
-                    print(key)
-                    print('nnnn')
-                    print(temp_result[key][2])
+                    #print(key)
+                    #print('nnnn')
+                    #print(temp_result[key][2])
                     parents = temp_result[key][2]
-            # parents = result[xx][2]
+            parents = result[xx][2]
             # print('parents = {}'.format(parents))
             subDrectory = "letters"
             try:
@@ -609,64 +539,73 @@ def print_Automatic_all_individul_members_ofAllGroup(g1,g2,g3):
                 finalLine = line1 + line2 + line3 + line4 + line5 + line6
                 txtFile.write(finalLine)
                 cls()
-                print("teams.txt file generated in the working folder and Created 18 text files ('welcome' letters to the players' guardians) in subfolder letters. ")
+    print("teams.txt file generated in the working folder and Created 18 text files ('welcome' letters to the players' guardians) in subfolder letters. ")
 
 
 
 #--------------------- Automatic create letters end-----------------
 
-def create_group(group1_list,group2_list,group3_list):
-    cls()
-    iii = 0
-    print("You can come out from group creation typing 'close' ")
-    print("Selection Help:: 1 for Dragons, 2 for Shark, 3 for Raptors")
-    groupName = input("Enter group name 1 or 2 or 3 >>")
-    if groupName == str(1):
-        my_list = group1_list
-    elif groupName == str(2):
-        my_list = group2_list
-    elif groupName == str(3):
-        my_list = group3_list
-    else:
-        print('Wrong Selection, Select 1 or 2 or 3')
-        return  0
-    print("Your selected {}".format(groupName))
-    # print(result.copy())
-    for key in result.copy():
-        if len(my_list) >= 6:
-            print('there is limit of 6 in single group')
-            print("Type 'print' command will show your selected group ")
-            print("Type 'print all' give selected and finalized team list in 'teams.txt' file ")
-            if groupName == 1:
-                listOne = my_list
-            if groupName == 2:
-                listTwo = my_list
-            if groupName == 3:
-                listThree = my_list
-            my_list = []
-            break
-        iii += 1
-        print("{} : {} count {}".format(key, result[key], iii))
-        select = input("enter selection in 'y' or 'n' > ")
-        if select == 'close':
-            break
-        if select == 'Y' or select == 'y':
-            my_list.append(key)
-            result.pop(key, None)
-            cls()
-            # print(result)
-            print(my_list)
-        if select == 'N' or select == 'n':
-            continue
 
-#------------------------------------------------------------------
+
+#----------------------main function--------------------------------------------
 
 if __name__== '__main__':
+    '''
+        This function is main function and executes first.
+        When import this file than this function executes first
+    '''
+    # Read csv file raw
+    with  open("soccer_players.csv", 'r') as csvfile:
+        for line in csvfile:
+            print(line)
+        pass
+
+    # Create Dictionarys d and d1 both with key 'Name'
+    d = {}
+    d1 = {}
+    d2 = {}
+    list1 = []
+    with open('soccer_players.csv') as f:
+        readers = csv.DictReader(f)
+        for row in readers:
+            # d.setdefault(row['Name'], {}).update({row['Height (inches)']: row['Soccer Experience']})
+            d.update({row['Name']: row.pop('Height (inches)')})
+            d1.update({row['Name']: row.pop('Soccer Experience')})
+            d2.update({row['Name']: row.pop('Guardian Name(s)')})
+
+    # Merge Both dictionary d and d1 having same key Name name result
+    print("\n \n")
+
+    result = {}
+    for key in (d.keys() | d1.keys() | d2.keys()):
+        if key in d: result.setdefault(key, []).append(d[key])
+        if key in d1: result.setdefault(key, []).append(d1[key])
+        if key in d2: result.setdefault(key, []).append(d2[key])
+
+    temp_result = {}
+    temp_result = result.copy()
+
+    i = 0
+    for key in result:
+        i += 1
+
+    print("Total Number of players are {} \n so In each team there would be 6 members will come!".format(i))
+    #Some pre fefine variable and values declarations
+    listOne = []
+    listTwo = []
+    listThree = []
+    my_list = []
+    tito = 89
+
+    expList = []
+    unexpList = []
+    group1 = []
+    group2 = []
+    group3 = []
+
     mainFun()
 
 
-
-#autumatic_selection_team()
 
 
 

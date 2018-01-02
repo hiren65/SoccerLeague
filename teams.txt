@@ -1,45 +1,48 @@
-------------------------------------------------------------
+--------------------------------------------------
 Soccer Team Groups 
-Computer Generated Groups 
-------------------------------------------------------------
-Group Name Dragons 
-Player Name:: Herschel Krustofski 
-Deatils :: Height 45, Experience YES, Parents Name Hyman and Rachel Krustofski 
-Player Name:: Suzane Greenberg 
-Deatils :: Height 44, Experience YES, Parents Name Henrietta Dumas 
-Player Name:: Diego Soto 
-Deatils :: Height 41, Experience YES, Parents Name Robin and Sarika Soto 
-Player Name:: Kimmy Stein 
-Deatils :: Height 41, Experience NO, Parents Name Bill and Hillary Stein 
-Player Name:: Arnold Willis 
-Deatils :: Height 43, Experience NO, Parents Name Claire Willis 
-Player Name:: Ben Finkelstein 
-Deatils :: Height 44, Experience NO, Parents Name Aaron and Jill Finkelstein 
-------------------------------------------------------------
-Group Name Sharks 
-Player Name:: Joe Smith 
-Deatils :: Height 42, Experience YES, Parents Name Jim and Jan Smith 
-Player Name:: Karl Saygan 
-Deatils :: Height 42, Experience YES, Parents Name Heather Bledsoe 
-Player Name:: Jill Tanner 
-Deatils :: Height 36, Experience YES, Parents Name Clara Tanner 
-Player Name:: Matt Gill 
-Deatils :: Height 40, Experience NO, Parents Name Charles and Sylvia Gill 
-Player Name:: Sammy Adams 
-Deatils :: Height 45, Experience NO, Parents Name Jeff Adams 
-Player Name:: Sal Dali 
-Deatils :: Height 41, Experience NO, Parents Name Gala Dali 
-------------------------------------------------------------
-Group Name Raptors 
-Player Name:: Phillip Helm 
-Deatils :: Height 44, Experience YES, Parents Name Thomas Helm and Eva Jones 
-Player Name:: Bill Bon 
-Deatils :: Height 43, Experience YES, Parents Name Sara and Jenny Bon 
-Player Name:: Les Clay 
-Deatils :: Height 42, Experience YES, Parents Name Wynonna Brown 
-Player Name:: Eva Gordon 
-Deatils :: Height 45, Experience NO, Parents Name Wendy and Mike Gordon 
-Player Name:: Chloe Alaska 
-Deatils :: Height 47, Experience NO, Parents Name David and Jamie Alaska 
-Player Name:: Joe Kavalier 
-Deatils :: Height 39, Experience NO, Parents Name Sam and Elaine Kavalier 
+Method :: Manually Selected and created Groups--------------------------------------------------
+Group 1 Dragons
+--------------------------------------------------
+Player : Sammy Adams 
+ :Height-45,  Soccer Experience-NO,  Guardian Name-Jeff Adams 
+ Player : Les Clay 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Wynonna Brown 
+ Player : Kimmy Stein 
+ :Height-41,  Soccer Experience-NO,  Guardian Name-Bill and Hillary Stein 
+ Player : Sal Dali 
+ :Height-41,  Soccer Experience-NO,  Guardian Name-Gala Dali 
+ Player : Bill Bon 
+ :Height-43,  Soccer Experience-YES,  Guardian Name-Sara and Jenny Bon 
+ Player : Phillip Helm 
+ :Height-44,  Soccer Experience-YES,  Guardian Name-Thomas Helm and Eva Jones 
+ --------------------------------------------------
+Group 2 Sharks
+--------------------------------------------------
+Player : Joe Smith 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Jim and Jan Smith 
+ Player : Herschel Krustofski 
+ :Height-45,  Soccer Experience-YES,  Guardian Name-Hyman and Rachel Krustofski 
+ Player : Joe Kavalier 
+ :Height-39,  Soccer Experience-NO,  Guardian Name-Sam and Elaine Kavalier 
+ Player : Ben Finkelstein 
+ :Height-44,  Soccer Experience-NO,  Guardian Name-Aaron and Jill Finkelstein 
+ Player : Diego Soto 
+ :Height-41,  Soccer Experience-YES,  Guardian Name-Robin and Sarika Soto 
+ Player : Matt Gill 
+ :Height-40,  Soccer Experience-NO,  Guardian Name-Charles and Sylvia Gill 
+ --------------------------------------------------
+Group 3 Raptors
+--------------------------------------------------
+Player : Suzane Greenberg 
+ :Height-44,  Soccer Experience-YES,  Guardian Name-Henrietta Dumas 
+ Player : Arnold Willis 
+ :Height-43,  Soccer Experience-NO,  Guardian Name-Claire Willis 
+ Player : Eva Gordon 
+ :Height-45,  Soccer Experience-NO,  Guardian Name-Wendy and Mike Gordon 
+ Player : Karl Saygan 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Heather Bledsoe 
+ Player : Chloe Alaska 
+ :Height-47,  Soccer Experience-NO,  Guardian Name-David and Jamie Alaska 
+ Player : Jill Tanner 
+ :Height-36,  Soccer Experience-YES,  Guardian Name-Clara Tanner 
+ 
