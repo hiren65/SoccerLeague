@@ -112,7 +112,7 @@ def print_All():
         txtFile.write("-" * 50)
         txtFile.write("\n")
         txtFile.write("Soccer Team Groups \n")
-        txtFile.write("Method :: Manually Selected and created Groups")
+        txtFile.write("Method :: Manually Selected and created Groups \n")
         txtFile.write("-" * 50)
         txtFile.write("\n")
         txtFile.write('Group 1 Dragons')

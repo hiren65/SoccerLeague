@@ -1,48 +1,49 @@
 --------------------------------------------------
 Soccer Team Groups 
-Method :: Manually Selected and created Groups--------------------------------------------------
+Method :: Manually Selected and created Groups 
+--------------------------------------------------
 Group 1 Dragons
 --------------------------------------------------
-Player : Sammy Adams 
+Player : Matt Gill 
+ :Height-40,  Soccer Experience-NO,  Guardian Name-Charles and Sylvia Gill 
+ Player : Sammy Adams 
  :Height-45,  Soccer Experience-NO,  Guardian Name-Jeff Adams 
- Player : Les Clay 
- :Height-42,  Soccer Experience-YES,  Guardian Name-Wynonna Brown 
+ Player : Jill Tanner 
+ :Height-36,  Soccer Experience-YES,  Guardian Name-Clara Tanner 
+ Player : Bill Bon 
+ :Height-43,  Soccer Experience-YES,  Guardian Name-Sara and Jenny Bon 
+ Player : Ben Finkelstein 
+ :Height-44,  Soccer Experience-NO,  Guardian Name-Aaron and Jill Finkelstein 
+ Player : Karl Saygan 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Heather Bledsoe 
+ --------------------------------------------------
+Group 2 Sharks
+--------------------------------------------------
+Player : Eva Gordon 
+ :Height-45,  Soccer Experience-NO,  Guardian Name-Wendy and Mike Gordon 
+ Player : Phillip Helm 
+ :Height-44,  Soccer Experience-YES,  Guardian Name-Thomas Helm and Eva Jones 
+ Player : Diego Soto 
+ :Height-41,  Soccer Experience-YES,  Guardian Name-Robin and Sarika Soto 
+ Player : Arnold Willis 
+ :Height-43,  Soccer Experience-NO,  Guardian Name-Claire Willis 
+ Player : Chloe Alaska 
+ :Height-47,  Soccer Experience-NO,  Guardian Name-David and Jamie Alaska 
+ Player : Herschel Krustofski 
+ :Height-45,  Soccer Experience-YES,  Guardian Name-Hyman and Rachel Krustofski 
+ --------------------------------------------------
+Group 3 Raptors
+--------------------------------------------------
+Player : Joe Kavalier 
+ :Height-39,  Soccer Experience-NO,  Guardian Name-Sam and Elaine Kavalier 
  Player : Kimmy Stein 
  :Height-41,  Soccer Experience-NO,  Guardian Name-Bill and Hillary Stein 
  Player : Sal Dali 
  :Height-41,  Soccer Experience-NO,  Guardian Name-Gala Dali 
- Player : Bill Bon 
- :Height-43,  Soccer Experience-YES,  Guardian Name-Sara and Jenny Bon 
- Player : Phillip Helm 
- :Height-44,  Soccer Experience-YES,  Guardian Name-Thomas Helm and Eva Jones 
- --------------------------------------------------
-Group 2 Sharks
---------------------------------------------------
-Player : Joe Smith 
- :Height-42,  Soccer Experience-YES,  Guardian Name-Jim and Jan Smith 
- Player : Herschel Krustofski 
- :Height-45,  Soccer Experience-YES,  Guardian Name-Hyman and Rachel Krustofski 
- Player : Joe Kavalier 
- :Height-39,  Soccer Experience-NO,  Guardian Name-Sam and Elaine Kavalier 
- Player : Ben Finkelstein 
- :Height-44,  Soccer Experience-NO,  Guardian Name-Aaron and Jill Finkelstein 
- Player : Diego Soto 
- :Height-41,  Soccer Experience-YES,  Guardian Name-Robin and Sarika Soto 
- Player : Matt Gill 
- :Height-40,  Soccer Experience-NO,  Guardian Name-Charles and Sylvia Gill 
- --------------------------------------------------
-Group 3 Raptors
---------------------------------------------------
-Player : Suzane Greenberg 
+ Player : Suzane Greenberg 
  :Height-44,  Soccer Experience-YES,  Guardian Name-Henrietta Dumas 
- Player : Arnold Willis 
- :Height-43,  Soccer Experience-NO,  Guardian Name-Claire Willis 
- Player : Eva Gordon 
- :Height-45,  Soccer Experience-NO,  Guardian Name-Wendy and Mike Gordon 
- Player : Karl Saygan 
- :Height-42,  Soccer Experience-YES,  Guardian Name-Heather Bledsoe 
- Player : Chloe Alaska 
- :Height-47,  Soccer Experience-NO,  Guardian Name-David and Jamie Alaska 
- Player : Jill Tanner 
- :Height-36,  Soccer Experience-YES,  Guardian Name-Clara Tanner 
+ Player : Les Clay 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Wynonna Brown 
+ Player : Joe Smith 
+ :Height-42,  Soccer Experience-YES,  Guardian Name-Jim and Jan Smith 
  
